@@ -1,0 +1,40 @@
+<div class="ml-8 mt-8">
+  <div class="px-4 sm:px-0">
+    <h3 class="text-base font-semibold leading-7 text-gray-900">Informatii:</h3>
+    <br><br>
+    <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Date personale</p>
+  </div>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Full name</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user.nume %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">E-mail address</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user.email %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Cod Numeric Personal</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user.cnp %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Rol</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Student</dd>
+      </div>
+    </dl>
+    <% if admin? %>
+    <span class="inline-flex overflow-hidden rounded-md border bg-white shadow-sm">
+      <%= button_to 'Sterge student', student_delete_path(@user),
+        class:"inline-block border-e p-3 text-gray-700 hover:bg-gray-50 focus:relative",
+        method: :delete, data: {turbo: false} %><br>
+      <%= link_to 'Nota noua', new_note_path(@user, user_id: @user.id),
+        class:"inline-block border-e p-3 text-gray-700 hover:bg-gray-50 focus:relative",
+        method: :post %>
+    </span>
+    <% end %> 
+    <div id="notes" class="min-w-full">
+      <%= render partial: 'notes/note', locals: {notes: @user.notes} %>
+    </div>
+  </div>
+</div>

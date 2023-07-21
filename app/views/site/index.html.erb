@@ -1,0 +1,43 @@
+<% if user_signed_in? %>
+  <div class="ml-8 mt-8">
+    <div class="px-4 sm:px-0">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Logged as: <%= @user.nume %></dd>
+          <br>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+              <thead class="ltr:text-left rtl:text-right">
+                <tr>
+                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Full Name
+                  </th>
+                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    CNP
+                  </th>
+                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Email
+                  </th>
+                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Role
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <% @users.each do |user| %>
+                  <% next if user.id == current_user.id%>
+                  <tr>
+                    <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"><%= link_to user.nume, user_path(user) %></td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= user.cnp %></td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= user.email %></td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">Student</td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+<% else %>
+  <%= render "site/banner" %>
+<% end %>
