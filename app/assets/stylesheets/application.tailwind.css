@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.clock{
+    border: 1px solid #606060;
+    color: white;
+    background-color: black;
+}
