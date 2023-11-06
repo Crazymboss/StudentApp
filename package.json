@@ -8,5 +8,9 @@
   },
   "scripts": {
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.10"
   }
 }
