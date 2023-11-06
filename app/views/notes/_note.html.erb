@@ -1,7 +1,6 @@
   <div class="ml-8 mt-8">
     <div class="px-4 sm:px-0">
-        <div class="px-4 py-6 mx-96">
-          <br>
+        <div class="px-4 py-6 mx-96"><br>
           <div class="overflow-x-auto">
             <table class="table-fixed divide-y-2 divide-gray-200 bg-white text-sm">
               <thead class="ltr:text-left rtl:text-right">
@@ -18,6 +17,9 @@
                   <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     Nota
                   </th>
+                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Data:
+                  </th>
                   <% if admin? %>
                     <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                       Nume Student
@@ -30,13 +32,14 @@
               </thead>
               <tbody class="divide-y divide-gray-200">
                 <% notes.each do |note| %>
-                  <% next if note.id == current_user.id%>
                   <tr>
-                    <td class="whitespace-nowrap px-8 py-2 font-medium text-gray-900"><%= note.an %></td>
-                    <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.materie %></td>
-                    <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.profesor %></td>
-                    
-                    <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.nota %></td>
+                    <% if note.user_id == current_user.id%>
+                      <td class="whitespace-nowrap px-8 py-2 font-medium text-gray-900"><%= note.an %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.materie %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.profesor %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.nota %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.created_at %></td>
+                    <% end %>
                     <% if admin? %>
                       <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.user.nume %></td> 
                       <td>
