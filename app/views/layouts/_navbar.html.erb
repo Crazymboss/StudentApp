@@ -3,32 +3,26 @@
     <div class="flex h-16 items-center justify-between">
       <div class="w-14">
       </div>
-
       <div class="md:flex md:items-center md:gap-12">
         <nav aria-label="Global" class="hidden md:block">
         </nav>
-
-        <div class="flex items-center gap-4">
-          <div class="sm:flex sm:gap-4">
-            
-             <% if user_signed_in? %>
-              <% if admin? %>
-                <%= link_to 'Lista Studenti' , root_path, class:"rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" %>
-                <%= link_to 'Note' , notes_path, class:"rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" %>
-              <% end %>
-                <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class:"rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" %>
-             <% else %>
-                <%= button_to 'Log In', new_user_session_path, class:"rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow" %>
-                <div class="hidden sm:flex">
-                <%= link_to 'Register', new_user_registration_path, class:"rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" %>
-                </div>
-             <% end %>   
+        <div class="flex items-center gap-1 mr-2">
+          <div class="sm:flex sm:gap-1">
+            <% if user_signed_in? %>
+            <% if admin? %>
+              <%= link_to 'Lista Studenti' , root_path, class:"rounded-md bg-gray-600 px-3 py-1 text-sm font-medium text-white" %>
+              <%= link_to 'Note' , notes_path, class:"rounded-md bg-gray-600 px-3 py-1 text-sm font-medium text-white" %>
+            <% end %>
+              <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class:"rounded-md bg-gray-600 px-3 py-1 text-sm font-medium text-white" %>
+            <% else %>
+              <%= button_to 'Log In', new_user_session_path, class:"rounded-md bg-teal-600 px-3 py-1 text-sm font-medium text-white shadow" %>
+              <div class="hidden sm:flex">
+              <%= link_to 'Register', new_user_registration_path, class:"rounded-md bg-gray-600 px-3 py-1 text-sm font-medium text-white" %>
+              </div>
+            <% end %>   
           </div>
-
           <div class="block md:hidden">
-            <button
-              class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-            >
+            <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"

@@ -8,6 +8,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1 or /notes/1.json
   def show
+    @note = Note.find_by(params[:id])
   end
 
   # GET /notes/new

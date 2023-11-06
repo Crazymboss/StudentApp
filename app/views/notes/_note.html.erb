@@ -21,9 +21,6 @@
                     Data:
                   </th>
                   <% if admin? %>
-                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                      Nume Student
-                    </th>
                     <th>
                     Actions
                     </th>
@@ -41,9 +38,13 @@
                       <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.created_at %></td>
                     <% end %>
                     <% if admin? %>
-                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.user.nume %></td> 
+                      <td class="whitespace-nowrap px-8 py-2 font-medium text-gray-900">Anul: <%= note.an %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.materie %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.profesor %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.nota %></td>
+                      <td class="whitespace-nowrap px-8 py-2 text-gray-700"><%= note.created_at %></td>
                       <td>
-                        <%= link_to 'Edit this note', edit_note_path(note), class: "" %>
+                        <%= link_to 'Editare', edit_note_path(note), class: "" %>
                       </td>
                     <% else%>
                       <td></td>

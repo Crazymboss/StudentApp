@@ -24,12 +24,12 @@
       </div>
     </dl>
     <% if admin? %>
-    <span class="inline-flex overflow-hidden rounded-md border bg-white shadow-sm">
+    <span class="inline-flex mt-2 text-sm overflow-hidden rounded-md border bg-white shadow-sm">
       <%= button_to 'Sterge student', student_delete_path(@user),
-        class:"inline-block border-e p-3 text-gray-700 hover:bg-gray-50 focus:relative",
+        class:"inline-block border-e p-1 text-gray-700 hover:bg-gray-50 focus:relative",
         method: :delete, data: {turbo: false} %><br>
-      <%= link_to 'Nota noua', new_note_path(@user, user_id: @user.id),
-        class:"inline-block border-e p-3 text-gray-700 hover:bg-gray-50 focus:relative",
+      <%= link_to 'Adauga nota', new_note_path(@user, user_id: @user.id),
+        class:"inline-block border-e p-1 text-gray-700 hover:bg-gray-50 focus:relative",
         method: :post %>
     </span>
     <% end %> 
