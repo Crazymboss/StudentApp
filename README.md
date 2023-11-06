@@ -5,20 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - ruby 3.2.2 (2023-03-30 revision e51014f9c0) [x86_64-linux]
 
-* System dependencies
+* System dependencies - Rails 7.0.6
 
-* Configuration
+* Database creation - rasil db:setup
 
-* Database creation
+* How to run the test suite - npx playwright text
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Services - redis, tailwindcss
 
 * Deployment instructions
-
-* ...
+    - bundle install
+    - rails db:setup
+    - ./bin/dev to start it.
